@@ -6,7 +6,7 @@ try:
 	now = datetime.now()
 	timezz = str(now.hour) + "." + str(now.minute)
 	timef = float(timezz)
-  companyName = #'COMPANY NAME GOES HERE'
+
 
 	print(timef)
 
@@ -35,7 +35,7 @@ try:
 			us = '%2f'
 
 			#defining link
-			download = 'https://companyName.revelup.com/reports/operations/data.csv?employee=&online_app=&online_app_type=&online_app_platform=&show_unpaid=1&show_irregular=1&range_from='+ str(month) + str(us) + str(today) + str(us) + str(year) +  str(timeV) + str(to) + str(tomMon) + str(us) + str(tom) + str(us) + str(tomYear) + str(timeV)
+			download = 'https://therangelangley.revelup.com/reports/operations/data.csv?employee=&online_app=&online_app_type=&online_app_platform=&show_unpaid=1&show_irregular=1&range_from='+ str(month) + str(us) + str(today) + str(us) + str(year) +  str(timeV) + str(to) + str(tomMon) + str(us) + str(tom) + str(us) + str(tomYear) + str(timeV)
 			
 
 			username = Credentials.login['consumer_username']
@@ -158,7 +158,8 @@ try:
 			import shutil
 			import os.path
 			from datetime import datetime, timedelta
-
+			import glob
+			
 			now = datetime.now()
 			timezz = str(now.hour) + "." + str(now.minute)
 			timef = float(timezz)
@@ -169,11 +170,10 @@ try:
 
 			
 
-
 			
 			exists = os.path.isfile(r'G:\My Drive\RevelSalesTarget\RawData\SalesOperationsReport.csv')
-			Nexists = os.path.isfile(r'C:\\Users\\Administrator\\Downloads\\'+'Operations_Report_companyName_' + SuffixTwo + SuffixOne +'.csv')
-			FileName = 'C:\\Users\\Administrator\\Downloads\\'+'Operations_Report_companyName_' + SuffixTwo + SuffixOne +'.csv'
+			Nexists = os.path.isfile(r'C:\\Users\\Administrator\\Downloads\\'+'Operations_Report_the-range-langley_the-range-langley_' + SuffixTwo + SuffixOne +'.csv')
+			FileName = 'C:\\Users\\Administrator\\Downloads\\'+'Operations_Report_the-range-langley_the-range-langley_' + SuffixTwo + SuffixOne +'.csv'
 
 			try:
 				if  Nexists:
@@ -190,6 +190,18 @@ try:
 				raise e
 			SuffixOne = datetime.strftime(datetime.now() + timedelta(1), '%Y-%m-%d')
 			SuffixTwo = datetime.strftime(datetime.now(), '%Y-%m-%d_')
+
+			#remove any active csv file --> ensures that if an error happens it'll delete any csv file in the dir
+			arr = glob.glob('C:\\Users\\Administrator\\Downloads\\*.csv')
+			i = 0
+
+			while i < len(arr):
+				try:
+					os.remove(arr[i])
+					i = i + 1
+				except Exception as e:
+					i = i + 1
+					
 
 			exit()
 	exit()
