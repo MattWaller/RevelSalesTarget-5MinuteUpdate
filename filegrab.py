@@ -23,7 +23,7 @@ try:
 		month = str('0'+ month)
 	if (int(tomMon)<10):
 		tomMon = str('0'+ str(tomMon))
-
+	companyName = #'COMPANY NAME GOES HERE'
 
 	print("print before if")
 
@@ -35,7 +35,7 @@ try:
 			us = '%2f'
 
 			#defining link
-			download = 'https://therangelangley.revelup.com/reports/operations/data.csv?employee=&online_app=&online_app_type=&online_app_platform=&show_unpaid=1&show_irregular=1&range_from='+ str(month) + str(us) + str(today) + str(us) + str(year) +  str(timeV) + str(to) + str(tomMon) + str(us) + str(tom) + str(us) + str(tomYear) + str(timeV)
+			download = 'https://' + companyName + '.revelup.com/reports/operations/data.csv?employee=&online_app=&online_app_type=&online_app_platform=&show_unpaid=1&show_irregular=1&range_from='+ str(month) + str(us) + str(today) + str(us) + str(year) +  str(timeV) + str(to) + str(tomMon) + str(us) + str(tom) + str(us) + str(tomYear) + str(timeV)
 			
 
 			username = Credentials.login['consumer_username']
@@ -170,10 +170,10 @@ try:
 
 			
 
-			
+			# if the company name has spaces you will need to add the appropriate -/_ to Nexists / FileName, check the format of the downloaded file.
 			exists = os.path.isfile(r'G:\My Drive\RevelSalesTarget\RawData\SalesOperationsReport.csv')
-			Nexists = os.path.isfile(r'C:\\Users\\Administrator\\Downloads\\'+'Operations_Report_the-range-langley_the-range-langley_' + SuffixTwo + SuffixOne +'.csv')
-			FileName = 'C:\\Users\\Administrator\\Downloads\\'+'Operations_Report_the-range-langley_the-range-langley_' + SuffixTwo + SuffixOne +'.csv'
+			Nexists = os.path.isfile(r'C:\\Users\\Administrator\\Downloads\\'+'Operations_Report_companyName_' + SuffixTwo + SuffixOne +'.csv')
+			FileName = 'C:\\Users\\Administrator\\Downloads\\'+'Operations_Report_companyName_' + SuffixTwo + SuffixOne +'.csv'
 
 			try:
 				if  Nexists:
